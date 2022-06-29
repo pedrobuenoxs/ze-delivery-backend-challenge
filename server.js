@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const routes = require('./src/api/routes/create-partner.route')
+const routes = require('./src/api/routers/create-partner.route')
 
 // RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
 app.use(express.json())
