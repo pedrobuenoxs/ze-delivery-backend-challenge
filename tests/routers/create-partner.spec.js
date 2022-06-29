@@ -1,5 +1,6 @@
 class CreateRouter {
   Route (httpRequest) {
+    if (!httpRequest || !httpRequest.body) return { statusCode: 500 }
     const { id, tradingName, ownerName, document, coverageArea, address } = httpRequest.body
     if (!id ||
       !tradingName ||
@@ -129,5 +130,18 @@ describe('create partner', () => {
     }
     const httpResponse = sut.Route(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
+  })
+
+  test('Should return 500 if no http request is provided', () => {
+    const sut = new CreateRouter()
+    const httpResponse = sut.Route()
+    expect(httpResponse.statusCode).toBe(500)
+  })
+
+  test('Should return 500 if no http has no body', () => {
+    const sut = new CreateRouter()
+    const httpRequest = { }
+    const httpResponse = sut.Route(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
   })
 })
