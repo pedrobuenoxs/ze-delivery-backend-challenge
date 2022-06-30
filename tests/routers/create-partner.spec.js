@@ -1,37 +1,5 @@
-class CreateRouter {
-  Route (httpRequest) {
-    if (!httpRequest || !httpRequest.body) return HttpResponse.serverError()
-    const { id, tradingName, ownerName, document, coverageArea, address } = httpRequest.body
-    if (!id) return HttpResponse.badRequest('id')
-    if (!tradingName) return HttpResponse.badRequest('tradingName')
-    if (!ownerName) return HttpResponse.badRequest('ownerName')
-    if (!document) return HttpResponse.badRequest('document')
-    if (!coverageArea) return HttpResponse.badRequest('coverageArea')
-    if (!address) return HttpResponse.badRequest('address')
-  }
-}
-
-class HttpResponse {
-  static badRequest (paramName) {
-    return {
-      statusCode: 400,
-      body: new MissingParamsError(paramName)
-    }
-  }
-
-  static serverError () {
-    return {
-      statusCode: 500
-    }
-  }
-}
-
-class MissingParamsError extends Error {
-  constructor (paramName) {
-    super(`Missing param: ${paramName}`)
-    this.name = 'MissingParamsError'
-  }
-}
+const CreateRouter = require('../../src/api/routers/create-partner.route')
+const MissingParamsError = require('../../src/api/helpers/missingParams-error')
 
 describe('create partner', () => {
   test('Should return 400 if no id is provided', () => {
@@ -187,7 +155,7 @@ describe('create partner', () => {
     expect(httpResponse.statusCode).toBe(500)
   })
 
-  test('Should return 500 if no http has no body', () => {
+  test('Should return 500 if http has no body', () => {
     const sut = new CreateRouter()
     const httpRequest = { }
     const httpResponse = sut.Route(httpRequest)
