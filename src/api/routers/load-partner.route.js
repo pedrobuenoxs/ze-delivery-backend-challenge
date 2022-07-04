@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router()
+const HttpResponse = require('../helpers/http-responses')
 
-router.get('/getOne/:id', (req, res) => {
-  res.send('Get by ID API')
-})
-
-module.exports = router
+module.exports = class LoadRouter {
+  async Route (httpRequest) {
+    const { id } = httpRequest.body
+    if (!id) return HttpResponse.badRequest('id')
+    return HttpResponse.loaded(httpRequest)
+  }
+}
