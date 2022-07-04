@@ -1,8 +1,10 @@
-const express = require('express')
-const router = express.Router()
+const HttpResponse = require('../helpers/http-responses')
 
-router.get('/get/:lat&long', (req, res) => {
-  res.send('Get by ID API')
-})
+module.exports = class SearchRouter {
+  async Route (httpRequest) {
+    const { address } = httpRequest.body
+    if (!address) return HttpResponse.badRequest('address')
 
-module.exports = router
+    return HttpResponse.searched(httpRequest)
+  }
+}
