@@ -1,4 +1,4 @@
-const LoadRouter = require('../../src/api/routers/load-partner.route')
+const LoadRouter = require('../../src/api/presentation/load-partner.route')
 const MissingParamsError = require('../../src/api/helpers/missingParams-error')
 
 const makeSut = () => {

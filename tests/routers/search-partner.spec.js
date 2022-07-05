@@ -1,4 +1,4 @@
-const SearchRouter = require('../../src/api/routers/search-partner.route')
+const SearchRouter = require('../../src/api/presentation/search-partner.route')
 const MissingParamsError = require('../../src/api/helpers/missingParams-error')
 
 const makeSut = () => {
