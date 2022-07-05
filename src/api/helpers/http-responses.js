@@ -17,7 +17,7 @@ module.exports = class HttpResponse {
 
   static created (httpRequest) {
     return {
-      body: httpRequest,
+      body: httpRequest.body,
       statusCode: 201
     }
   }
