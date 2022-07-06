@@ -1,21 +1,12 @@
 const { Router } = require('express')
-const CreateRouter = require('../presentation/create-partner.route')
 const Routes = Router()
+const getById = require('../controllers/getById-controller')
 
 Routes.get('/', (request, response) => {
   response.send('hello world')
 })
 
-Routes.post('/partner', async (request, response) => {
-  const c = await request.body
-  const req = {
-    body: c
-  }
-  const a = new CreateRouter()
-  const b = await a.Route(req)
-  response.json(b)
-  // console.log(c)
-})
+Routes.post('/partner', getById)
 
 Routes.get('/partner/:id', (request, response) => {
   const { id } = request.params

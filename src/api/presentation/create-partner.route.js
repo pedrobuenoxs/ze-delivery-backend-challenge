@@ -10,6 +10,11 @@ module.exports = class CreateRouter {
     if (!coverageArea || coverageArea.type !== 'MultiPolygon') return HttpResponse.badRequest('coverageArea', httpRequest.body)
     if (!address || address.type !== 'Point') return HttpResponse.badRequest('address', httpRequest.body)
 
+    /*
+      TODO = ADICIONAR REPOSITÓRIO
+      TODO = File system ou mongodb?
+    */
+
     return HttpResponse.created(httpRequest)
   }
 }
