@@ -1,5 +1,5 @@
-const CreateRouter = require('../../src/api/presentation/create-partner.route')
-const MissingParamsError = require('../../src/api/helpers/missingParams-error')
+const CreateRouter = require('./create-partner-controller')
+const MissingParamsError = require('../helpers/missingParams-error')
 
 const makeSut = () => {
   return new CreateRouter()
