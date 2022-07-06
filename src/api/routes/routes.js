@@ -1,17 +1,15 @@
 const { Router } = require('express')
 const Routes = Router()
-const getById = require('../controllers/getById-controller')
+const createPartner = require('../controllers/createRouter-controller')
+const loadPartner = require('../controllers/loadPartner-controller')
 
 Routes.get('/', (request, response) => {
   response.send('hello world')
 })
 
-Routes.post('/partner', getById)
+Routes.post('/partner', createPartner)
 
-Routes.get('/partner/:id', (request, response) => {
-  const { id } = request.params
-  response.send(id)
-})
+Routes.get('/partner/:id', loadPartner)
 
 Routes.get('/partner/:long:lat', (request, response) => {
 //   const { long, lat } = request.params
