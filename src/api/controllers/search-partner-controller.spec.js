@@ -36,27 +36,17 @@ describe('create partner', () => {
   test('Should return 200 if id is provided', async () => {
     const sut = makeSut()
     const httpRequest = {
-      body: {
-        address: {
-          type: 'any',
-          coordinates: 'any'
-        }
+      params: {
+        long: 'any',
+        lat: 'any'
       }
     }
     const httpResponse = await sut.Route(httpRequest)
     expect(httpResponse.statusCode).toBe(200)
     expect(httpResponse.body).toEqual(expect.objectContaining({
-      id: expect.anything(),
-      tradingName: expect.anything(),
-      ownerName: expect.anything(),
-      document: expect.anything(),
-      coverageArea: {
-        type: expect.anything(),
-        coordinates: expect.anything()
-      },
-      address: {
-        type: expect.anything(),
-        coordinates: expect.anything()
+      params: {
+        long: 'any',
+        lat: 'any'
       }
     }))
   })

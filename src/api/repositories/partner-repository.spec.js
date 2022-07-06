@@ -7,7 +7,7 @@ const makeSut = () => {
 describe('Partner Repository', () => {
   test('Load function return a valid user', async () => {
     const fakeRepository = makeSut()
-    const load = await fakeRepository.Load(10)
+    const load = await fakeRepository.Load({ params: { id: 10 } })
     expect(load.id).toBe('10')
   })
 })
