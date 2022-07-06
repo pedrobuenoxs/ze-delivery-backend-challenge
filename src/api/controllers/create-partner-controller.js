@@ -14,11 +14,6 @@ module.exports = class CreateRouter {
       return HttpResponse.serverError()
     }
 
-    /*
-      TODO = ADICIONAR REPOSITÓRIO
-      TODO = File system ou mongodb?
-    */
-
     return HttpResponse.created(httpRequest)
   }
 }
