@@ -1,4 +1,3 @@
-
 const PartnerRepository = require('../repositories/partner-repository')
 
 module.exports = async (request, response) => {

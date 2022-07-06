@@ -1,5 +1,5 @@
-const CreateRouter = require('../controllers/create-partner-controller')
+const PartnerRepository = require('../repositories/partner-repository')
 
 module.exports = async (request, response) => {
-  response.json(await new CreateRouter().Route(request))
+  response.json(await new PartnerRepository().Create(request))
 }
