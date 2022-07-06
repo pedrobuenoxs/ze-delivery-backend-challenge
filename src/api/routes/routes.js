@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const Routes = Router()
-const createPartner = require('../controllers/createRouter-controller')
-const loadPartner = require('../controllers/loadPartner-controller')
+const createPartner = require('../middleware/createPartner-middleware')
+const loadPartner = require('../middleware/loadPartner-middleware')
 
 Routes.get('/', (request, response) => {
   response.send('hello world')
